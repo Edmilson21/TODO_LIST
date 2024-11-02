@@ -1,5 +1,5 @@
 # TODO_LIST 👨🏽‍💻🌍
-# Esta es una App desarrollada en Python(Django) para la gestión de tareas diárias del usuário
+# This is an App developed in Python (Django) for the management of the user's daily tasks
 
 # Requirements:
 asgiref==3.8.1
