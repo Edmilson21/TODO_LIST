@@ -1,0 +1,45 @@
+{% extends 'layout/base.html' %}
+ 
+{% block 'title' %} Crear Contactos {% endblock %}
+
+{% block 'styles' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+
+<style>
+    .alert-success {
+    width: 60%;
+    padding: 15px;
+    background-color: rgb(76, 208, 19);
+    color: #ffffff;
+    justify-content: center;
+}
+ 
+</style>
+
+{% endblock %}
+
+{% block 'content' %} 
+
+<!-- Recurriendo los mesajes -->
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li{% if message.tags %} 
+        class='alert-success'
+        {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<span class="aux-btns-forms"> <a href="{% url 'contact' %}">Volver atrás</a></span>
+<form action="{% url 'contact_create' %}" method="POST"> {% csrf_token %}    
+    <table>
+    {{ form.as_table }}
+    </table>
+    <div class="btn-wrapper">
+        <input type="submit" value="Enviar" class="btn-send"/>
+    </div>
+</form>
+{% endblock %}   
